@@ -1,0 +1,41 @@
+dizer sim para tudo : 
+npm init - y 
+
+executar o arquivo:
+comando node parta em que o arquivo está/ arquivo  
+node src/server.js
+
+IMPORTANTE LEMBRAR:
+Não temos acesso dentro do node APIS que são expecificas do JS dentro do browser. 
+
+O NODE le vem automaticamente com alguns modulos internos, para facilitar o trabalho com algumas coisas que são muitos comum que temos no BACK
+ex: http
+
+const http = require('http')
+Aplicação HTTP =>APIs
+
+nesse ex, utilizamnos um padrão que chamamos de CommonJS padrão de importação utilizando o require
+//CommonJS =>require
+
+Hoje em dia a gente quase que não usa o CommonJS, utilizamnso o ESModules, onde utilizamos o import/ export
+//ESModules = >import/export
+
+Porem por padrão o node não suporta ESModules, para ver que o node intenda o ESModules, DENTRO DO NOSSO PACKAGE.json precisamos colocar o type: "module"
+
+e com isso, podemos substituir o const http = require('http') por import https from('http')
+
+//alterar diretamente, sem precisar ficar atualizando o server 
+node --watch src/server.js
+
+
+colocar de forma dinamica, no package ao inves do : 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  colocar o :  
+  "scripts": {
+   "dev": "node --watch src/server.js"
+  },
+
+  e depois no terminal rodar o : npm run dev
