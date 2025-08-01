@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketseat - React.js -Fundamentos</title>
+</head>
+<body>
+    <div id="root" ></div>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        
+        <script type="text/babel">
+        function Alert1(){
+            function handleAlertClick(event){
+                console.log(event)
+                alert("Teste")
+            }
+
+            return(
+                <button type="button" onClick={handleAlertClick}>
+                    Mostrar Alerta
+                </button>
+            )
+        }
+        
+        function Alert2(){
+            function handleAlertClick(msg){
+                alert(msg)
+            }
+            return(
+               <button onClick={()=>handleAlertClick("Mesagem de alerta")}>
+                Mostrar Alerta c/Parametro
+               </button>
+            )
+        }
+        
+        function Alert3(){
+            function handlerAlertClick(event){
+                alert(event.target.previousSibling.value);
+            }
+            function handleInputChange(event){
+                console.log(event.target.value)
+            }
+            return(
+                <div>
+                    <input type="text" placeholder="Digite ..."
+                    onChange={handleInputChange}
+                    />
+                    <button onClick={handlerAlertClick}>
+                        Mostrar Alerta do Campo de texto
+                    </button>
+                </div>
+            )
+        }
+        
+       
+
+        function App(){
+                return(
+                    <main className={`
+                        py-38 px-4
+                        flex flex-col sm:flex-row
+                        items-center sm:items-stretch
+                        gap-10
+                        `}>
+                        <Alert1/>
+                        
+                        <Alert2/>
+
+                        <Alert3/>
+                    </main>
+                )
+            }
+
+            ReactDOM.createRoot(document.getElementById('root')).render(
+                <App/>
+            )
+        </script>
+</body>
+</html>
